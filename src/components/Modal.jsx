@@ -1,13 +1,14 @@
-import styles from './Modal.module.css'
+import styles from "./Modal.module.css";
 
-function Modal({ children, onClose }) {
-	return (<>
-		<div className={styles.backdrop} onClick={onClose}>
-			<dialog open className={styles.modal}>
-				{children}
-			</dialog>
-		</div>
-	</>
+function Modal({ children }) {
+	return (
+		<>
+			<div className={styles.backdrop}>
+				<dialog open className={styles.modal}>
+					{children}
+				</dialog>
+			</div>
+		</>
 	);
 }
 
