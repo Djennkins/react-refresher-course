@@ -1,3 +1,4 @@
+import Modal from "../components/Modal";
 import styles from "./NewPost.module.css";
 import { useState } from "react";
 
@@ -24,22 +25,24 @@ function NewPost({ onCancel, onAddPost }) {
 	}
 
 	return (
-		<form className={styles.form} onSubmit={submitHandler}>
-			<p>
-				<label htmlFor="body">Text</label>
-				<textarea id="body" required rows={3} onChange={bodyChangeHandler} />
-			</p>
-			<p>
-				<label htmlFor="name">Your name</label>
-				<input type="text" id="name" required onChange={authorChangeHandler} />
-			</p>
-			<p className={styles.actions}>
-				<button type="button" onClick={onCancel}>
-					Cancel
-				</button>
-				<button type="submit">Submit</button>
-			</p>
-		</form>
+		<Modal>
+			<form className={styles.form} onSubmit={submitHandler}>
+				<p>
+					<label htmlFor="body">Text</label>
+					<textarea id="body" required rows={3} onChange={bodyChangeHandler} />
+				</p>
+				<p>
+					<label htmlFor="name">Your name</label>
+					<input type="text" id="name" required onChange={authorChangeHandler} />
+				</p>
+				<p className={styles.actions}>
+					<button type="button" onClick={onCancel}>
+						Cancel
+					</button>
+					<button type="submit">Submit</button>
+				</p>
+			</form>
+		</Modal>
 	);
 }
 
