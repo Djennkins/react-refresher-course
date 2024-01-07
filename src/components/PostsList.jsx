@@ -5,11 +5,17 @@ import styles from "./PostsList.module.css";
 import { useState } from "react";
 
 function PostsList({ isPosting, onStopPosting }) {
+	const [posts, setPosts] = useState([]);
+
+	function addPostHandler(postData) {
+		setPosts((existingPosts) => [postData, ...existingPosts]);
+	}
+
 	return (
 		<>
 			{isPosting && (
 				<Modal>
-					<NewPost onCancel={onStopPosting} />
+					<NewPost onCancel={onStopPosting} onAddPost={addPostHandler} />
 				</Modal>
 			)}
 			<ul className={styles.posts}>
